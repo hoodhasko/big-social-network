@@ -9,10 +9,8 @@ const Profile = () => {
         <textarea></textarea>
         <button>Add Post</button>
       </div>
-      <Post />
-      <Post />
-      <Post />
-      <Post />
+      <Post message='Hello' countLike='5' />
+      <Post message='my first post' countLike='12' />
     </div>
   );
 };
