@@ -1,0 +1,16 @@
+.content {
+  grid-area: content;
+  background-color: cadetblue;
+}
+
+.item {
+  color: white;
+}
+
+.item img {
+  border-radius: 20px;
+}
+
+.like {
+  color: red;
+}
