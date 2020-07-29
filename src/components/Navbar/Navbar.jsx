@@ -5,9 +5,9 @@ const Navbar = () => {
   return (
     <nav className={s.nav}>
       <ul>
-        <li className={s.item}>Profile</li>
-        <li className={`{s.item} {s.active}`}>Messages</li>
-        <li className={s.item}>Music</li>
+        <li className={s.item}><a href="/profile">Profile</a></li>
+        <li className={`{s.item} {s.active}`}><a href="/dialogs">Messages</a></li>
+        <li className={s.item}><a href="/news">News</a></li>
       </ul>
     </nav>
   );
