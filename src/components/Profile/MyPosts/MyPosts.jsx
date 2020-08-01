@@ -2,15 +2,20 @@ import React from 'react';
 import Post from './Post/Post';
 
 const Profile = () => {
+
+    let postsData = [
+        {id: 1, message: 'Hello', countLike: 5},
+        {id: 2, message: 'My first post', countLike: 21}
+    ]
+
   return (
     <div>
-      My Posts
+      <h2>My Posts</h2>
       <div>
         <textarea></textarea>
         <button>Add Post</button>
       </div>
-      <Post message='Hello' countLike='5' />
-      <Post message='my first post' countLike='12' />
+        { postsData.map( post => <Post message={post.message} countLike={post.countLike} />) }
     </div>
   );
 };
