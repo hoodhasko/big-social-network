@@ -1,7 +1,7 @@
 import React from 'react';
 import Post from './Post/Post';
 
-const Profile = () => {
+const MyPosts = () => {
 
     let postsData = [
         {id: 1, message: 'Hello', countLike: 5},
@@ -20,4 +20,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default MyPosts;

@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './Post.module.css';
 
-const Profile = (props) => {
+const Post = (props) => {
   return (
     <div className={s.item}>
       <img
@@ -16,4 +16,4 @@ const Profile = (props) => {
   );
 };
 
-export default Profile;
+export default Post;
