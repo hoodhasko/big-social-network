@@ -1,13 +1,16 @@
 import React from 'react';
 import MyPosts from './MyPosts/MyPosts';
 
-const Profile = () => {
-  return (
-    <div>
-        <h1>Profile</h1>
-      <MyPosts />
-    </div>
-  );
+const Profile = (props) => {
+
+
+
+    return (
+        <div>
+            <h1>Profile</h1>
+            <MyPosts postsData={props.postsData}/>
+        </div>
+    );
 };
 
 export default Profile;

@@ -7,15 +7,15 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import Profile from "./components/Profile/Profile";
 import News from "./components/News/News";
 
-const App = () => {
+const App = (props) => {
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
                 <Header/>
                 <Navbar/>
                 <div className='app-wrapper__content'>
-                    <Route path='/dialogs' component={Dialogs}/>
-                    <Route path='/profile' component={Profile}/>
+                    <Route path='/dialogs' render={ () => <Dialogs dialogsData={props.Data.dialogsData} messagesData={props.Data.messagesData} />}/>
+                    <Route path='/profile' render={ () => <Profile postsData={props.Data.postsData}/>}/>
                     <Route path='/news' component={News}/>
                 </div>
             </div>
