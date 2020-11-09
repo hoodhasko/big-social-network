@@ -7,10 +7,10 @@ const MyPosts = (props) => {
 
   let addPost = () => {
     let text = newTextPost.current.value;
-    alert(text);
+    props.addPost(text);
   }
 
-    return (
+  return (
     <div>
       <h2>My Posts</h2>
       <div>

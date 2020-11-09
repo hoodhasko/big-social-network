@@ -3,7 +3,8 @@ let state = {
         posts: [
             {id: 1, message: 'Hello', countLike: 153},
             {id: 2, message: 'My first post', countLike: 21},
-            {id: 3, message: 'Press F', countLike: 9999}
+            {id: 3, message: 'Press F', countLike: 9999},
+            {id: 4, message: 'GG WP', countLike: 12}
         ]},
     messagesPage: {
         dialogs: [
@@ -19,5 +20,15 @@ let state = {
         ]
     }
 };
+
+export let addPost = (postMessage) => {
+    let newPost = {
+        id: 5,
+        message: postMessage,
+        countLike: 5454
+    };
+
+    state.profilePage.posts.push(newPost);
+}
 
 export default state;
