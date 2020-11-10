@@ -7,7 +7,9 @@ let state = {
             {id: 2, message: 'My first post', countLike: 21},
             {id: 3, message: 'Press F', countLike: 9999},
             {id: 4, message: 'GG WP', countLike: 12}
-        ]},
+        ],
+        newPostText: ''
+    },
     messagesPage: {
         dialogs: [
             {id: 1, name: 'Alex'},
@@ -23,14 +25,20 @@ let state = {
     }
 };
 
-export let addPost = (postMessage) => {
+export let addPost = () => {
     let newPost = {
         id: 5,
-        message: postMessage,
+        message: state.profilePage.newPostText,
         countLike: 5454
     };
 
     state.profilePage.posts.push(newPost);
+    rerender(state);
+}
+
+export let changeNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+
     rerender(state);
 }
 

@@ -3,21 +3,24 @@ import Post from './Post/Post';
 
 const MyPosts = (props) => {
 
-  let newTextPost = React.createRef();
+  let text = props.newPostText;
 
   let addPost = () => {
-    let text = newTextPost.current.value;
-    if (text!== '') {
-      props.addPost(text);
-      newTextPost.current.value = '';
+    if (text !== '') {
+      props.addPost();
+      props.changeNewPostText('');
     }
+  }
+
+  let onPostChange = (e) => {
+    props.changeNewPostText(e.target.value);
   }
 
   return (
     <div>
       <h2>My Posts</h2>
       <div>
-        <textarea ref={newTextPost}></textarea>
+        <textarea onChange={onPostChange} value={text}/>
         <button onClick={ addPost }>Add Post</button>
       </div>
         { props.postsData.map( post => <Post message={post.message} countLike={post.countLike} />) }
