@@ -21,7 +21,8 @@ let state = {
             {id: 2, message: 'Hi'},
             {id: 3, message: 'Yo'},
             {id: 4, message: 'Press F'}
-        ]
+        ],
+        newMessageText: ''
     }
 };
 
@@ -39,6 +40,21 @@ export let addPost = () => {
 export let changeNewPostText = (newText) => {
     state.profilePage.newPostText = newText;
 
+    rerender(state);
+}
+
+export let addMessage = () => {
+    let newMessage = {
+        id: 5,
+        message: state.messagesPage.newMessageText
+    }
+
+    state.messagesPage.messages.push(newMessage);
+    rerender(state);
+}
+
+export let changeNewMessageText = (newText) => {
+    state.messagesPage.newMessageText = newText;
     rerender(state);
 }
 

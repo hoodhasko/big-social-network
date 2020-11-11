@@ -7,11 +7,17 @@ import s from './Dialogs.module.css';
 
 const Dialogs = (props) => {
 
-    let newTextMessage = React.createRef();
+    let newTextMessage = props.dialogsData.newMessageText;
 
     let addMessage = () => {
-        let text = newTextMessage.current.value;
-        alert(text);
+        if (newTextMessage !== '') {
+            props.addMessage();
+            props.changeNewMessageText('');
+        }
+    }
+
+    let onMessageChange = (e) => {
+        props.changeNewMessageText(e.target.value);
     }
 
     return (
@@ -23,7 +29,7 @@ const Dialogs = (props) => {
                 { props.dialogsData.messages.map( message => <Message message={message.message}/>) }
             </div>
             <div>
-                <textarea ref={newTextMessage}></textarea>
+                <textarea onChange={onMessageChange} value={newTextMessage}/>
                 <button onClick={addMessage}>Add Message</button>
             </div>
         </div>
