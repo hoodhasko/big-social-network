@@ -1,4 +1,7 @@
-import {rerender} from '../render';
+
+let rerender = () => {
+
+}
 
 let state = {
     profilePage: {
@@ -26,7 +29,7 @@ let state = {
     }
 };
 
-export let addPost = () => {
+export const addPost = () => {
     let newPost = {
         id: 5,
         message: state.profilePage.newPostText,
@@ -34,16 +37,16 @@ export let addPost = () => {
     };
 
     state.profilePage.posts.push(newPost);
-    rerender(state);
+    console.log(rerender);
 }
 
-export let changeNewPostText = (newText) => {
+export const changeNewPostText = (newText) => {
     state.profilePage.newPostText = newText;
 
     rerender(state);
 }
 
-export let addMessage = () => {
+export const addMessage = () => {
     let newMessage = {
         id: 5,
         message: state.messagesPage.newMessageText
@@ -53,9 +56,13 @@ export let addMessage = () => {
     rerender(state);
 }
 
-export let changeNewMessageText = (newText) => {
+export const changeNewMessageText = (newText) => {
     state.messagesPage.newMessageText = newText;
     rerender(state);
+}
+
+export const subscribe = (observer) => {
+    rerender = observer;
 }
 
 export default state;
