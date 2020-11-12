@@ -3,17 +3,17 @@ import Post from './Post/Post';
 
 const MyPosts = (props) => {
 
-  let text = props.newPostText;
+  let text = props.postsData.newPostText;
 
   let addPost = () => {
     if (text !== '') {
-      props.addPost();
-      props.changeNewPostText('');
+      props.dispatch({type: 'ADD-POST'});
+      props.dispatch({type: 'CHANGE-NEW-POST-TEXT', newText: ''});
     }
   }
 
   let onPostChange = (e) => {
-    props.changeNewPostText(e.target.value);
+    props.dispatch({type: 'CHANGE-NEW-POST-TEXT', newText: e.target.value});
   }
 
   return (
@@ -23,7 +23,7 @@ const MyPosts = (props) => {
         <textarea onChange={onPostChange} value={text}/>
         <button onClick={ addPost }>Add Post</button>
       </div>
-        { props.postsData.map( post => <Post message={post.message} countLike={post.countLike} />) }
+        { props.postsData.posts.map( post => <Post message={post.message} countLike={post.countLike} />) }
     </div>
   );
 };

@@ -11,13 +11,13 @@ const Dialogs = (props) => {
 
     let addMessage = () => {
         if (newTextMessage !== '') {
-            props.addMessage();
-            props.changeNewMessageText('');
+            props.dispatch({type: 'ADD-MESSAGE'});
+            props.dispatch({type: 'CHANGE-NEW-MESSAGE-TEXT', newText: ''});
         }
     }
 
     let onMessageChange = (e) => {
-        props.changeNewMessageText(e.target.value);
+        props.dispatch({type: 'CHANGE-NEW-MESSAGE-TEXT', newText: e.target.value});
     }
 
     return (
