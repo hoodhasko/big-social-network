@@ -4,6 +4,7 @@ import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 
 import s from './Dialogs.module.css';
+import { addMessageActionCreater, changeNewMessageTextActionCreater } from '../../redux/state';
 
 const Dialogs = (props) => {
 
@@ -11,13 +12,13 @@ const Dialogs = (props) => {
 
     let addMessage = () => {
         if (newTextMessage !== '') {
-            props.dispatch({type: 'ADD-MESSAGE'});
-            props.dispatch({type: 'CHANGE-NEW-MESSAGE-TEXT', newText: ''});
+            props.dispatch(addMessageActionCreater());
+            props.dispatch(changeNewMessageTextActionCreater(''));
         }
     }
 
     let onMessageChange = (e) => {
-        props.dispatch({type: 'CHANGE-NEW-MESSAGE-TEXT', newText: e.target.value});
+        props.dispatch(changeNewMessageTextActionCreater(e.target.value));
     }
 
     return (
