@@ -1,7 +1,5 @@
-const ADD_POST = 'ADD-POST';
-const CHANGE_NEW_POST_TEXT = 'CHANGE-NEW-POST-TEXT';
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const CHANGE_NEW_MESSAGE_TEXT = 'CHANGE-NEW-MESSAGE-TEXT';
+import dialogsReducer from './dialogs-reducer';
+import profileReducer from './profile-reducer';
 
 let store = {
   _state: {
@@ -14,7 +12,7 @@ let store = {
       ],
       newPostText: '',
     },
-    messagesPage: {
+    dialogsPage: {
       dialogs: [
         { id: 1, name: 'Alex' },
         { id: 2, name: 'Hasko' },
@@ -37,49 +35,11 @@ let store = {
   },
   _subscriber() {},
   dispatch(action) {
-    switch (action.type) {
-      case ADD_POST:
-        let newPost = {
-          id: 5,
-          message: this._state.profilePage.newPostText,
-          countLike: 5454,
-        };
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
 
-        this._state.profilePage.posts.push(newPost);
-        this._subscriber(this._state);
-        break;
-      case CHANGE_NEW_POST_TEXT:
-        this._state.profilePage.newPostText = action.newText;
-        this._subscriber(this._state);
-        break;
-      case ADD_MESSAGE:
-        let newMessage = {
-          id: 5,
-          message: this._state.messagesPage.newMessageText,
-        };
-
-        this._state.messagesPage.messages.push(newMessage);
-        this._subscriber(this._state);
-        break;
-      case CHANGE_NEW_MESSAGE_TEXT:
-        this._state.messagesPage.newMessageText = action.newText;
-        this._subscriber(this._state);
-        break;
-      default:
-        console.log('NO-NO-NO');
-    }
+    this._subscriber(this._state);
   },
 };
-
-export const addPostActionCreater = () => ({ type: ADD_POST });
-export const changeNewPostTextActionCreater = (text) => ({
-  type: CHANGE_NEW_POST_TEXT,
-  newText: text,
-});
-export const addMessageActionCreater = () => ({ type: ADD_MESSAGE });
-export const changeNewMessageTextActionCreater = (text) => ({
-  type: CHANGE_NEW_MESSAGE_TEXT,
-  newText: text,
-});
 
 export default store;
