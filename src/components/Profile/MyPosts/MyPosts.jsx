@@ -1,20 +1,18 @@
 import React from 'react';
-import { addPostActionCreater, changeNewPostTextActionCreater } from '../../../redux/profile-reducer';
 import Post from './Post/Post';
 
 const MyPosts = (props) => {
 
-  let text = props.postsData.newPostText;
+  let text = props.newPostText;
 
   let addPost = () => {
     if (text !== '') {
-      props.dispatch(addPostActionCreater());
-      props.dispatch(changeNewPostTextActionCreater(''));
+      props.addNewPost();
     }
   }
 
   let onPostChange = (e) => {
-    props.dispatch(changeNewPostTextActionCreater(e.target.value));
+    props.updateNewPostText(e.target.value);
   }
 
   return (
@@ -24,7 +22,7 @@ const MyPosts = (props) => {
         <textarea onChange={onPostChange} value={text}/>
         <button onClick={ addPost }>Add Post</button>
       </div>
-        { props.postsData.posts.map( post => <Post message={post.message} countLike={post.countLike} />) }
+        { props.posts.map( post => <Post message={post.message} countLike={post.countLike} />) }
     </div>
   );
 };

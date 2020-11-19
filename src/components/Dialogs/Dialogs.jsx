@@ -4,21 +4,19 @@ import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 
 import s from './Dialogs.module.css';
-import { addMessageActionCreater, changeNewMessageTextActionCreater } from '../../redux/dialogs-reducer';
 
 const Dialogs = (props) => {
 
-    let newTextMessage = props.dialogsData.newMessageText;
+    let newMessageText = props.dialogsData.newMessageText;
 
     let addMessage = () => {
-        if (newTextMessage !== '') {
-            props.dispatch(addMessageActionCreater());
-            props.dispatch(changeNewMessageTextActionCreater(''));
+        if (newMessageText !== '') {
+            props.sendNewMessage();
         }
     }
 
     let onMessageChange = (e) => {
-        props.dispatch(changeNewMessageTextActionCreater(e.target.value));
+        props.updateNewMessageText(e.target.value);
     }
 
     return (
@@ -30,7 +28,7 @@ const Dialogs = (props) => {
                 { props.dialogsData.messages.map( message => <Message message={message.message}/>) }
             </div>
             <div>
-                <textarea onChange={onMessageChange} value={newTextMessage}/>
+                <textarea onChange={onMessageChange} value={newMessageText}/>
                 <button onClick={addMessage}>Add Message</button>
             </div>
         </div>

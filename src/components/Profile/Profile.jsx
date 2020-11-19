@@ -1,12 +1,11 @@
 import React from 'react';
-import MyPosts from './MyPosts/MyPosts';
+import MyPostsContainer from './MyPosts/MyPostsContainer';
 
 const Profile = (props) => {
     return (
         <div>
             <h1>Profile</h1>
-            <MyPosts postsData={props.postsData}
-                    dispatch={props.dispatch}/>
+            <MyPostsContainer store={props.store}/>
         </div>
     );
 };
