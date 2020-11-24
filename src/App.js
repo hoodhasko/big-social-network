@@ -7,21 +7,15 @@ import DialogsContainer from './components/Dialogs/DialogsContainer';
 import Profile from './components/Profile/Profile';
 import News from './components/News/News';
 
-const App = (props) => {
+const App = () => {
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
         <Header />
         <Navbar />
         <div className='app-wrapper__content'>
-          <Route
-            path='/profile'
-            render={() => <Profile store={props.store} />}
-          />
-          <Route
-            path='/dialogs'
-            render={() => <DialogsContainer store={props.store} />}
-          />
+          <Route path='/profile' render={() => <Profile />} />
+          <Route path='/dialogs' render={() => <DialogsContainer />} />
           <Route path='/news' component={News} />
         </div>
       </div>

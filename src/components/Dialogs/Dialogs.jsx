@@ -6,13 +6,14 @@ import Message from './Message/Message';
 import s from './Dialogs.module.css';
 
 const Dialogs = (props) => {
+    debugger
 
     let newMessageText = props.dialogsData.newMessageText;
 
     let addMessage = () => {
-        if (newMessageText !== '') {
+        //if (newMessageText !== '') {
             props.sendNewMessage();
-        }
+        //}
     }
 
     let onMessageChange = (e) => {
