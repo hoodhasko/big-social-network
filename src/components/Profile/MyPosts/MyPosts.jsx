@@ -8,6 +8,7 @@ const MyPosts = (props) => {
   let addPost = () => {
     if (text !== '') {
       props.addNewPost();
+      props.updateNewPostText('');
     }
   }
 

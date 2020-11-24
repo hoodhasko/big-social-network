@@ -11,9 +11,10 @@ const Dialogs = (props) => {
     let newMessageText = props.dialogsData.newMessageText;
 
     let addMessage = () => {
-        //if (newMessageText !== '') {
+        if (newMessageText !== '') {
             props.sendNewMessage();
-        //}
+            props.updateNewMessageText('');
+        }
     }
 
     let onMessageChange = (e) => {
