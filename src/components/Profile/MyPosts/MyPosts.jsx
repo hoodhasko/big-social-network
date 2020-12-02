@@ -8,7 +8,6 @@ const MyPosts = (props) => {
   let addPost = () => {
     if (text !== '') {
       props.addNewPost();
-      props.updateNewPostText('');
     }
   }
 
@@ -23,7 +22,7 @@ const MyPosts = (props) => {
         <textarea onChange={onPostChange} value={text}/>
         <button onClick={ addPost }>Add Post</button>
       </div>
-        { props.posts.map( post => <Post message={post.message} countLike={post.countLike} />) }
+        { props.posts.map( post => <Post message={post.message} countLike={post.countLike} key={post.id}/>) }
     </div>
   );
 };
