@@ -6,6 +6,7 @@ import Navbar from './components/Navbar/Navbar';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import Profile from './components/Profile/Profile';
 import News from './components/News/News';
+import UsersContainer from './components/Users/UsersContainer';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Route path='/profile' render={() => <Profile />} />
           <Route path='/dialogs' render={() => <DialogsContainer />} />
           <Route path='/news' component={News} />
+          <Route path='/users' render={() => <UsersContainer />} />
         </div>
       </div>
     </BrowserRouter>
