@@ -3,35 +3,7 @@ const UNFOLLOW = 'UNFOLLOW';
 const GET_USERS = 'GET-USERS';
 
 let initialState = {
-  users: [
-    {
-      id: 1,
-      avatarURL:
-        'https://muratselek.com.tr/wp-content/uploads/2019/01/yorum-icon-avatar-men-300x300.png',
-      followed: true,
-      fullName: 'Alex',
-      status: 'I am a noob :-(',
-      location: { country: 'Russia', city: 'Ufa' },
-    },
-    {
-      id: 2,
-      avatarURL:
-        'https://muratselek.com.tr/wp-content/uploads/2019/01/yorum-icon-avatar-men-300x300.png',
-      followed: false,
-      fullName: 'Igor',
-      status: 'I am a pro :-(',
-      location: { country: 'Russia', city: 'Moscow' },
-    },
-    {
-      id: 3,
-      avatarURL:
-        'https://muratselek.com.tr/wp-content/uploads/2019/01/yorum-icon-avatar-men-300x300.png',
-      followed: true,
-      fullName: 'Oleg',
-      status: 'I am a very pro :-(',
-      location: { country: 'Russia', city: 'SP' },
-    },
-  ],
+  users: [],
 };
 
 const usersReducer = (state = initialState, action) => {
